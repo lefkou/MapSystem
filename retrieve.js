@@ -30,7 +30,9 @@ http.createServer(function(request, response) {
             var collection = db.collection('points');
             var results = collection.find({postcode: 'AB39 3QH'});
             // iterate
+            response.write('first');
             results.each(function (err, result) {
+                response.write('yo');
                 //if the result is null, there are no more results, it’s ok to close everything
                 if (result == null) {
                     response.end('Completed');
@@ -39,7 +41,7 @@ http.createServer(function(request, response) {
                 if (err) {
                     response.write(err);
                 } else {
-                    response.write('Fetched: ' + result.name + " : " + result.length +'\n');
+                    response.w('Fetched: ' + result.name + " : " + result.length +'\n');
                 }
             });
 
