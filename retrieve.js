@@ -28,10 +28,10 @@ http.createServer(function(request, response) {
 
             // do some work here with the database.
             var collection = db.collection('points');
-            var results = collection.find().toArray();
+            var results = collection.find();
             // iterate
             response.write('first');
-            results.forEach(function (err, result) {
+            results.each(function (err, result) {
                 response.write('yo');
                 //if the result is null, there are no more results, it’s ok to close everything
                 if (result == null) {
