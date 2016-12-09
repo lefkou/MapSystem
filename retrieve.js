@@ -28,7 +28,7 @@ http.createServer(function(request, response) {
 
             // do some work here with the database.
             var collection = db.collection('points');
-            var results = collection.find({postcode: 'AB39 3QH'});
+            var results = collection.find();
             // iterate
             response.write('first');
             results.each(function (err, result) {
@@ -43,6 +43,7 @@ http.createServer(function(request, response) {
                 } else {
                     response.w('Fetched: ' + result.name + " : " + result.length +'\n');
                 }
+
             });
 
             //Done Close connection
