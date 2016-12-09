@@ -28,7 +28,7 @@ http.createServer(function(request, response) {
 
             // do some work here with the database.
             var collection = db.collection('points');
-            var results = collection.find({name: 'Walk 3'});
+            var results = collection.find();
             // iterate
             results.each(function (err, result) {
                 response.write('yo');
