@@ -8,7 +8,7 @@ var http = require('http');
 //setup our port
 var port = process.env.PORT || 1337;
 // Connection URL. This is where your mongodb server is running.
-var url = 'mongodb://lefg7:damnbitch@ds127998.mlab.com:27998/mapsystem';
+var url = 'mongodb://test:test@ds119548.mlab.com:19548/mapsystem';
 //We need to work with "MongoClient" interface in order to connect to a mongodb server.
 var MongoClient = mongodb.MongoClient;
 
@@ -30,21 +30,20 @@ http.createServer(function(request, response) {
             var collection = db.collection('points');
             var results = collection.find({name: 'Walk 3'});
             // iterate
-            return results.toJSON();
-            // results.each(function (err, result) {
-            //     response.write('yo');
-            //     //if the result is null, there are no more results, it’s ok to close everything
-            //     if (result == null) {
-            //         response.end('Completed');
-            //         db.close();
-            //     }
-            //     if (err) {
-            //         response.write(err);
-            //     } else {
-            //         response.write('Fetched: ' + result.name + " : " + result.length +'\n');
-            //     }
-            //
-            // });
+            results.each(function (err, result) {
+                response.write('yo');
+                //if the result is null, there are no more results, it’s ok to close everything
+                if (result == null) {
+                    response.end('Completed');
+                    db.close();
+                }
+                if (err) {
+                    response.write(err);
+                } else {
+                    response.write('Fetched: ' + result.name + " : " + result.length +'\n');
+                }
+
+            });
 
             //Done Close connection
             db.close();
