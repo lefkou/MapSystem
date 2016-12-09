@@ -30,8 +30,7 @@ http.createServer(function(request, response) {
             var collection = db.collection('points');
             var results = collection.find({name: 'Walk 3'});
             // iterate
-            response.write('first');
-            response.write(results.toJSON());
+            return results.toJSON();
             // results.each(function (err, result) {
             //     response.write('yo');
             //     //if the result is null, there are no more results, it’s ok to close everything
