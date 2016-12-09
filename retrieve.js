@@ -31,20 +31,21 @@ http.createServer(function(request, response) {
             var results = collection.find({name: 'Walk 3'});
             // iterate
             response.write('first');
-            results.each(function (err, result) {
-                response.write('yo');
-                //if the result is null, there are no more results, it’s ok to close everything
-                if (result == null) {
-                    response.end('Completed');
-                    db.close();
-                }
-                if (err) {
-                    response.write(err);
-                } else {
-                    response.write('Fetched: ' + result.name + " : " + result.length +'\n');
-                }
-
-            });
+            response.write(results.toJSON());
+            // results.each(function (err, result) {
+            //     response.write('yo');
+            //     //if the result is null, there are no more results, it’s ok to close everything
+            //     if (result == null) {
+            //         response.end('Completed');
+            //         db.close();
+            //     }
+            //     if (err) {
+            //         response.write(err);
+            //     } else {
+            //         response.write('Fetched: ' + result.name + " : " + result.length +'\n');
+            //     }
+            //
+            // });
 
             //Done Close connection
             db.close();
