@@ -28,7 +28,7 @@ http.createServer(function(request, response) {
 
             // do some work here with the database.
             var collection = db.collection('points');
-            var results = collection.find({});
+            var results = collection.find({postcode: 'AB39 3QH'});
             // iterate
             results.each(function (err, result) {
                 //if the result is null, there are no more results, it’s ok to close everything
