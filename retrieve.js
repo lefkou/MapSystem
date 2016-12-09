@@ -39,7 +39,7 @@ http.createServer(function(request, response) {
                 if (err) {
                     response.write(err);
                 } else {
-                    response.write('Fetched: ' + result.name + " : " + result.start_lat + " : " + result.start_long +'\n');
+                    response.write('Fetched: ' + result.name + " : " + result.length +'\n');
                 }
             });
 
