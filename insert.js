@@ -34,19 +34,21 @@ http.createServer(function(request, response) {
             var point3 = {name: 'Walk 3',length: '3000',start_lat: '57.003702', start_long:'-2.228419',postcode: 'AB39 3QH'};
             var point4 = {name: 'Walk 4',length: '1000',start_lat: '57.002702', start_long:'-2.228219',postcode: 'AB39 3QH'};
             var point5 = {name: 'Walk 5',length: '4032',start_lat: '57.001702', start_long:'-2.228319',postcode: 'AB39 3QH'};
+
+            collection.insert([point1, point2, point3], function (err, result) {
+                if (err) {
+                    response.write('Insert failed ' + err + "\n");
+                } else {
+                    console.log(result);
+                    response.write('Inserted ' + result.insertedCount +' documents ok. +"\n"');
+                }
+                //Close connection
+                db.close();
+                response.end('Finished, Connection closed \n');
+                //remove any other db.close or response.end statement below this line
+            });
         }
-        collection.insert([point1, point2, point3], function (err, result) {
-            if (err) {
-                response.write('Insert failed ' + err + "\n");
-            } else {
-                console.log(result);
-                response.write('Inserted ' + result.insertedCount +' documents ok. +"\n"');
-            }
-            //Close connection
-            db.close();
-            response.end('Finished, Connection closed \n');
-            //remove any other db.close or response.end statement below this line
-        });
+
 
         response.end('Finished, Connection closed \n');
     });
