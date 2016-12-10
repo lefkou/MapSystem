@@ -57,6 +57,10 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
+app.use(function(req, res, next) {
+  res.setHeader('charset', 'utf-8')
+  res.setHeader("Access-Control-Allow-Origin: *");
+  next();
+});
 
 module.exports = app;

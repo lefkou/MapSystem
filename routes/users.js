@@ -8,10 +8,7 @@ router.get('/', function(req, res, next) {
     if(err){
         res.send(err);
     } else {
-    		res.status(err.status || 500);
-  			res.setHeader("Access-Control-Allow-Origin: *");
-  			res.setHeader("Access-Control-Allow-Methods: PUT, GET, POST");
-  			res.setHeader("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+    		// res.status(err.status || 500);
         res.json(p);
     }
   });
