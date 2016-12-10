@@ -32,7 +32,7 @@ http.createServer(function(request, response) {
             // iterate
             // response.write(''+ results.length);
             results.toArray(function(err,arr){
-                return arr;
+                response.write(arr);
             });
             // each(function (err, result) {
             //     //if the result is null, there are no more results, it’s ok to close everything
