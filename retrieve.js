@@ -31,7 +31,7 @@ http.createServer(function(request, response) {
             var results = collection.find().limit(2);
             // iterate
 
-            results.each(function (err, result) {
+            results.forEach(function (err, result) {
                 response.write('E lew');
                 //if the result is null, there are no more results, it’s ok to close everything
                 if (result == null) {
