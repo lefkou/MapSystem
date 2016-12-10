@@ -28,10 +28,9 @@ http.createServer(function(request, response) {
 
             // do some work here with the database.
             var collection = db.collection('points');
-            var results = collection.find().fetch();
+            var results = collection.find({name: 'Walk 1'});
             // iterate
             results.each(function (err, result) {
-                response.write('yo');
                 //if the result is null, there are no more results, it’s ok to close everything
                 if (result == null) {
                     response.end('Completed');
