@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
     if(err){
         res.send(err);
     } else {
-    		res.setHeader('Content-Type', 'application/json');
-        res.send(p);
+    		res.addHeader("Access-Control-Allow-Origin", "http://goportlethentest.azurewebsites.net");
+        res.json(p);
     }
   });
 });
