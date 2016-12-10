@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
     if(err){
         res.send(err);
     } else {
-    		// res.status(err.status || 500);
         res.json(p);
     }
   });

@@ -10,7 +10,11 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 mongoose.connect('mongodb://test:test@ds119548.mlab.com:19548/mapsystem');
 
 // view engine setup
@@ -57,10 +61,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-app.use(function(req, res, next) {
-  res.setHeader('charset', 'utf-8')
-  res.setHeader("Access-Control-Allow-Origin: *");
-  next();
-});
+
+
 
 module.exports = app;
