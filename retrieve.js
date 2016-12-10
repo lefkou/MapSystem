@@ -40,7 +40,7 @@ http.createServer(function(request, response) {
                     response.write(err);
                 } else {
                     response.write('Nade');
-                    response.write('Fetched: ' + result.name + " : " + result.length +'\n');
+                    response.write('Fetched: ' + result.name + ' : ' + result.length +'\n');
                 }
 
             });
