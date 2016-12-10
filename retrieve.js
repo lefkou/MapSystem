@@ -31,18 +31,21 @@ http.createServer(function(request, response) {
             var results = collection.find();
             // iterate
             // response.write(''+ results.length);
-            results.each(function (err, result) {
-                //if the result is null, there are no more results, it’s ok to close everything
-                if (result == null) {
-                    response.end('Completed');
-                    db.close();
-                }
-                if (err) {
-                    response.write(err);
-                } else {
-                    response.write('Fetched: ' + result.name + ' \n');
-                }
+            results.toArray(function(err,arr){
+                return arr;
             });
+            // each(function (err, result) {
+            //     //if the result is null, there are no more results, it’s ok to close everything
+            //     if (result == null) {
+            //         response.end('Completed');
+            //         db.close();
+            //     }
+            //     if (err) {
+            //         response.write(err);
+            //     } else {
+            //         response.write('Fetched: ' + result.name + ' \n');
+            //     }
+            // });
 
             //Done Close connection
             db.close();
