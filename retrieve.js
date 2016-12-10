@@ -30,8 +30,9 @@ http.createServer(function(request, response) {
             var collection = db.collection('points');
             var results = collection.find();
             // iterate
-            response.write('E lew');
+
             results.forEach(function (err, result) {
+                response.write('E lew');
                 //if the result is null, there are no more results, it’s ok to close everything
                 if (result == null) {
                     response.end('Completed');
