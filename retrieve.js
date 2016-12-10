@@ -40,14 +40,12 @@ http.createServer(function(request, response) {
                 if (err) {
                     response.write(err);
                 } else {
-                    response.write('Nade');
                     response.write('Fetched: ' + result.name + ' \n');
                 }
-
             });
 
-            // //Done Close connection
-            // db.close();
+            //Done Close connection
+            db.close();
         }
         response.end('Finished, Connection closed \n');
     });
