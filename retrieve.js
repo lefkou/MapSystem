@@ -31,7 +31,7 @@ http.createServer(function(request, response) {
             var results = collection.find();
             // iterate
 
-            results.toArray(function (err, result) {
+            results.each(function (err, result) {
                 response.write('E lew');
                 //if the result is null, there are no more results, it’s ok to close everything
                 if (result == null) {
