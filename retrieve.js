@@ -31,17 +31,16 @@ http.createServer(function(request, response) {
             var results = collection.find();
             // iterate
             // response.write(''+ results.length);
-            results.each(function (err, result) {
+            results.toArray(function (err, result) {
                 //if the result is null, there are no more results, it’s ok to close everything
-                if (result == null) {
-                    response.end('Completed');
-                    db.close();
-                }
+                // if (result == null) {
+                //     response.end('Completed');
+                //     db.close();
+                // }
                 if (err) {
                     response.write(err);
                 } else {
-                    response.write('Nade');
-                    response.write('Fetched: ' + result.name + ' \n');
+                    response.write('Fetched: ' + result + ' \n');
                 }
 
             });
