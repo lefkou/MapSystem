@@ -17,9 +17,10 @@ router.post('/', function(req, res, next) {
 	var point = new Point(); // create a new instance of the Point model
   // set the point fields (comes from the request)
   point.name = req.body.name;
-  point.length = req.body.length;
-  point.start_lat = req.body.start_lat;
-  point.start_long = req.body.start_long;
+  point.info = req.body.info;
+  point.img_url = req.body.img_url;
+  point.lat = req.body.lat;
+  point.long = req.body.long;
   point.postcode = req.body.postcode;
   // save the point and check for errors
   point.save(function(err) {
